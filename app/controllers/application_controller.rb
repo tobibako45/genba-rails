@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session
 
+  # ユーザーごとに言語を切り替える（仮定実装）
+  # before_action :set_locale
+
   # helper_method指定することで、ビューで使えるようになる
   helper_method :current_user
 
+  # current_userが空（ログインしていなければ）ログイン画面にリダイレクト
   before_action :login_required
+
 
   private
 
@@ -17,6 +22,11 @@ class ApplicationController < ActionController::Base
   def login_required
     # current_userが空（ログインしていなければ）ログイン画面にリダイレクト
     redirect_to login_path unless current_user
+  end
+
+  def set_locale
+    # ログインしていなければ日本語
+    I18n.locale = current_user&.locale || :ja
   end
 
 
