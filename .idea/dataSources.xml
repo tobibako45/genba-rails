@@ -7,12 +7,6 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/taskleaf_development</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="postgres@localhost" uuid="2491555c-07f3-484f-9da5-80ed4458f09f">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="taskleaf_production@localhost" uuid="fc15df11-4a9c-4f69-b9eb-9f884ac9fb4d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>

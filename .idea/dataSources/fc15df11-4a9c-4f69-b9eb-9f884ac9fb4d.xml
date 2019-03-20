@@ -29,7 +29,7 @@
       <ObjectId>24711</ObjectId>
       <StateNumber>967</StateNumber>
       <Owner>taskleaf</Owner>
-      <IntrospectionStateNumber>976</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1032</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|24728|24730|1
@@ -131,7 +131,7 @@ sequence|table|24739|24741|1
       <Comment>standard public schema</Comment>
       <StateNumber>359</StateNumber>
       <Owner>shoto</Owner>
-      <IntrospectionStateNumber>978</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1033</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>

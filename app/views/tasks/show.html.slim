@@ -17,6 +17,11 @@ table.table.table-hover
       / auto_link版
       td= auto_link(simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: "div"))
     tr
+      / 画像
+      th= Task.human_attribute_name(:image)
+      / @task.image.attached? で実際に画像が添付されているときだけimage_tagを表示するようにしている
+      td= image_tag @task.image if @task.image.attached?
+    tr
       th= Task.human_attribute_name(:created_at)
       td= @task.created_at
     tr

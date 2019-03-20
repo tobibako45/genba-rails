@@ -1,7 +1,7 @@
                    Prefix Verb   URI Pattern                                                                              Controller#Action
                     login GET    /login(.:format)                                                                         sessions#new
                           POST   /login(.:format)                                                                         sessions#create
-                   logout DELETE /logout(.:format)                                                                        session#destroy
+                   logout DELETE /logout(.:format)                                                                        sessions#destroy
               admin_users GET    /admin/users(.:format)                                                                   admin/users#index
                           POST   /admin/users(.:format)                                                                   admin/users#create
            new_admin_user GET    /admin/users/new(.:format)                                                               admin/users#new
@@ -11,6 +11,8 @@
                           PUT    /admin/users/:id(.:format)                                                               admin/users#update
                           DELETE /admin/users/:id(.:format)                                                               admin/users#destroy
                      root GET    /                                                                                        tasks#index
+         confirm_new_task POST   /tasks/new/confirm(.:format)                                                             tasks#confirm_new
+             import_tasks POST   /tasks/import(.:format)                                                                  tasks#import
                     tasks GET    /tasks(.:format)                                                                         tasks#index
                           POST   /tasks(.:format)                                                                         tasks#create
                  new_task GET    /tasks/new(.:format)                                                                     tasks#new

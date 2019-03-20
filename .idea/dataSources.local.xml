@@ -9,21 +9,11 @@
       <secret-storage>master_key</secret-storage>
       <introspection-schemas>@:@</introspection-schemas>
     </data-source>
-    <data-source name="postgres@localhost" uuid="2491555c-07f3-484f-9da5-80ed4458f09f">
-      <database-info product="PostgreSQL" version="11.2" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" dbms="POSTGRES" exact-version="11.2" exact-driver-version="42.2">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <introspection-schemas>@:@</introspection-schemas>
-    </data-source>
     <data-source name="taskleaf_production@localhost" uuid="fc15df11-4a9c-4f69-b9eb-9f884ac9fb4d">
       <database-info product="PostgreSQL" version="11.2" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" dbms="POSTGRES" exact-version="11.2" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>taskleaf</user-name>
       <introspection-schemas>@:@</introspection-schemas>
     </data-source>
   </component>
