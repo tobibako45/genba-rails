@@ -15,7 +15,9 @@ class TasksController < ApplicationController
 
     # ransackを使って検索機能
     @q = current_user.tasks.ransack(params[:q])
-    # gem kaminariを使ってページネーション。デフォルト25件
+    # gem kaminariを使ってページネーション。
+    # デフォルト25件。perで５０に設定。これはmodelでもできる。
+    # @tasks = @q.result(distinct: true).page(params[:page]).per(50)
     @tasks = @q.result(distinct: true).page(params[:page])
 
 

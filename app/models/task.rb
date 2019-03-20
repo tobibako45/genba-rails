@@ -1,6 +1,10 @@
 class Task < ApplicationRecord
   # before_validation :set_nameless_name
 
+  # ページネーションの表示件数指定
+  # paginates_per 50
+
+
   # 一つのタスクから一つの画像を紐付ける。Taskもでるからimageを呼ぶことを指定している。
   has_one_attached :image
 
