@@ -63,6 +63,12 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+
+
+
+  # railsとsidekiqを連携させるための設定
+  config.active_job.queue_adapter = :sidekiq
+
   # 一日ごとにログを取る設定（過去ログはyyymmddがつく）
   config.logger = Logger.new('log/development.log', 'daily')
 

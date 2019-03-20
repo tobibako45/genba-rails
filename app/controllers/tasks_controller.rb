@@ -78,25 +78,36 @@ class TasksController < ApplicationController
     # save!ではなくsaveを使う。戻り値によって制御をかえるため。save!だと例外を発生させるから。
     if @task.save
 
-
       # deliver_now 即時送信するメソッド
       TaskMailer.creation_email(@task).deliver_now
       # TaskMailer.creation_email(@task).deliver_now(wait: 5.minutes) # 5分後に送信
 
+      # ジョブの呼び出し
+      # perform_laterメソッド(ログ出力)で、非同期に実行。
+      # ここでperform_laterは、ジョブの実行を予約するだけ（ジョブを登録するだけ）で、ジョブの開始や完了を待つことはない。
+      # すぐに対応できない状態であれば、ジョブの処理は、処理できる状態になったら時点で開始される。
+      SampleJob.perform_later
+      # 翌日の正午ににジョブを実行
+      # SampleJob.set(wait_unil: Date.tomorrow.noon).perform_later
+      # 一週間後に実行
+      # SampleJob.set(wait:1.week).perform_later
+
+
+
+      # log関連
 
       # デバッグ用に、保存したタスクの情報をログに出力させたい場合。
       # logger.debug "タスク： #{@task.attributes.inspect}"
-
       # log/developments.log に出力
       logger.debug 'logger に出力'
-
       # logger.formatter.debug
-
       # log/custom.log に出力。なければ作成。
       Rails.application.config.custom_logger.debug 'custom_logger にも出力してる'
-
       # taskに関するログだけを専用ファイルに出力
       task_logger.debug 'taskのログを出力'
+
+
+
 
       flash[:notice] = "タスク「#{@task.name}」を登録しました。"
       redirect_to task_url @task

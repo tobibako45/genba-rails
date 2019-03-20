@@ -48,6 +48,8 @@ gem 'rails_autolink'
 gem 'ransack'
 # ページネーション
 gem 'kaminari'
+# 非同期処理を行うツール
+gem 'sidekiq'
 
 gem 'sqlite3', '~> 1.3.6'
 
