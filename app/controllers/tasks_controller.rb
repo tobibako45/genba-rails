@@ -4,6 +4,9 @@ class TasksController < ApplicationController
 
 
   def index
+    # ジョブの呼び出し
+    TestJob.perform_later
+
     # @tasks = Task.all
     # @tasks = current_user.tasks.order(created_at: :desc)
 
@@ -135,8 +138,16 @@ class TasksController < ApplicationController
     # task = current_user.tasks.find(params[:id]).destroy
 
     @task.destroy
-    redirect_to tasks_url, notice: "タスク「#{@task.name}を削除しました。」"
+    # redirect_to tasks_url, notice: "タスク「#{@task.name}を削除しました。」"
+
+    # Ajax版
+    # redirect_toの代わりにheadメソッドを用いて、レスポンスボディなしでHTTPステーラスとして204が返る（成功と判断される）
+    # head :no_content
+    # ↑ views/tasks.destroy.je.erbがビューとして出力されるように、コメントアウト
+
   end
+
+
 
 
   # オリジナルのロガー taskに関するログだけファイル出力

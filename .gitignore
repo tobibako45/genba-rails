@@ -26,5 +26,11 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-.idea/**/workspace.xml
-.idea/**/tasks.xml
+# RubyMine
+.idea/*
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

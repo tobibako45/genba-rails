@@ -69,6 +69,7 @@ Rails.application.configure do
   # railsとsidekiqを連携させるための設定
   config.active_job.queue_adapter = :sidekiq
 
+
   # 一日ごとにログを取る設定（過去ログはyyymmddがつく）
   config.logger = Logger.new('log/development.log', 'daily')
 

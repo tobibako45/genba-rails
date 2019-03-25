@@ -1,0 +1,20 @@
+//destroyアクションに対応するテンプレートにjsを記述
+document.querySelector("#task-<%= @task.id %>").style.display = 'none';
+
+//rails-ujsでAjax通信を行う場合、レスポンスとしてJavaScriptga返されていれば、自動的にそれを実行してくれます。
+//そのため、特に代わりの記述を追加せずに、これだけのタスクの非表示処理が動作する。
+
+//サーバー側で動的にJSを組み立てることができることが利点
+
+//例えば、削除と同時に「残りのタスクは○○件です」といったメッセージを表示することも簡単にできる。
+var message = document.createElement('p');
+message.innerText = 'タスク「<%= @task.name %>を削除しました。残りのタスクは<%= Task.count %>件です。」';
+document.querySelector('title').insertAdjacentElement('beforebegin', message);
+
+
+//railsでは、このようなサーバーサイドで生成したJSからなるレスポンス（またはこのレスポンスによる画面更新までのプロセス）のことを、
+//Server-generated JavaScript Resopnses(SJR)といいます。
+
+//メリット：手軽。テンプレートやヘルパー、モデルなどのサーバーサイドの資産を簡単に扱える。
+//デメリット：１つの画面に関するJSがあちらこちらに散らばり、共通化しづらい。
+

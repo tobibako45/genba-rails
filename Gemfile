@@ -53,6 +53,11 @@ gem 'sidekiq'
 
 gem 'sqlite3', '~> 1.3.6'
 
+# jqueryを別途導入
+gem 'jquery-rails'
+# webpackerの導入
+gem 'webpacker'
+
 
 
 group :development, :test do
