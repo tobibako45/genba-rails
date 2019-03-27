@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) {|repo| "https://github.com/#{repo}.git"}
 
 ruby '2.5.1'
 
@@ -41,24 +41,21 @@ gem 'html2slim'
 gem 'bootstrap'
 # 文字列中のURLにリンクを貼りたい
 gem 'rails_autolink'
-
-# gem 'rb-readline'
-
 # 検索フォーム
 gem 'ransack'
 # ページネーション
 gem 'kaminari'
 # 非同期処理を行うツール
 gem 'sidekiq'
-
+# sqliteバージョン指定
 gem 'sqlite3', '~> 1.3.6'
-
 # jqueryを別途導入
 gem 'jquery-rails'
 # webpackerの導入
 gem 'webpacker'
 
-
+# これ入れないとエラーしてた
+# gem 'rb-readline'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
