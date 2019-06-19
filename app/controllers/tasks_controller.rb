@@ -4,8 +4,8 @@ class TasksController < ApplicationController
 
 
   def index
-    # ジョブの呼び出し
-    TestJob.perform_later
+    # ジョブの呼び出し redisが動いてないとダメ
+    # TestJob.perform_later
 
     # @tasks = Task.all
     # @tasks = current_user.tasks.order(created_at: :desc)
@@ -24,7 +24,6 @@ class TasksController < ApplicationController
     @tasks = @q.result(distinct: true).page(params[:page])
 
 
-
     # 一覧表示のindexに、異なるフォーマットでの出力機能を用意する
     # respond_to 返却するレスポンスのフォーマットを切り替えるためのメソッド
     # format.htmlはHTMLとしてアクセスされた場合（URL拡張子なしでアクセスされた場合）
@@ -41,7 +40,6 @@ class TasksController < ApplicationController
       }
     end
   end
-
 
   def show
     # @task = Task.find(params[:id])
@@ -96,7 +94,6 @@ class TasksController < ApplicationController
       # SampleJob.set(wait:1.week).perform_later
 
 
-
       # log関連
 
       # デバッグ用に、保存したタスクの情報をログに出力させたい場合。
@@ -108,9 +105,6 @@ class TasksController < ApplicationController
       Rails.application.config.custom_logger.debug 'custom_logger にも出力してる'
       # taskに関するログだけを専用ファイルに出力
       task_logger.debug 'taskのログを出力'
-
-
-
 
       flash[:notice] = "タスク「#{@task.name}」を登録しました。"
       redirect_to task_url @task
