@@ -29,6 +29,8 @@ table.table.table.hover
 
       / 基本的には名称でソートし、名称が同じであれば登録日時にソートする
       / th= sort_link(@q, :name, [:name, "created_at desc"])
+      / 基本的には名称でソートし、名称が同じであれば登録日時にソートする
+      / th= sort_link(@q, :name, [:name, "created_at desc"])
 
       th= sort_link(@q, :created_at)
       / th= Task.human_attribute_name(:created_at)
@@ -42,7 +44,7 @@ table.table.table.hover
         td= task.created_at
         td
           = link_to '編集', edit_task_path(task), class: 'btn btn-primary mr-3'
-            / = link_to '削除', task, method: :delete, data: {confirm: "タスク「#{task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
+          / = link_to '削除', task, method: :delete, data: {confirm: "タスク「#{task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
 
             / Ajax版
             / 削除リンクの目印として「.delete」を付与
